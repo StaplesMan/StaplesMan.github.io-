@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-size: 80px;
+            touch-action: none;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            user-select: none;
+        }
+    </style>
+</head>
+<body>
+    <div>😂</div>
+    <script>
+        // Disable right-click/back button
+        document.addEventListener('contextmenu', e => e.preventDefault());
+        history.pushState(null, null, location.href);
+        window.onpopstate = () => history.go(1);
+        
+        // Auto-close after 2 minutes
+        setTimeout(() => { window.close(); }, 120000);
+        
+        // Optional: Vibrate when opened
+        if ("vibrate" in navigator) navigator.vibrate(500);
+    </script>
+</body>
+</html>
